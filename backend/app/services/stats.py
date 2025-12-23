@@ -107,5 +107,36 @@ def compute_basic_stats(dfs: dict) -> dict:
 
     result["busiest_month"] = busiest_month_stats
 
+    # ------------------
+    # Comfort movies
+    # ------------------
+    COMFORT_MOVIE_THRESHOLD = 3
+
+    comfort_movies = {
+        "threshold": COMFORT_MOVIE_THRESHOLD,
+        "count": 0,
+        "movies": []
+    }
+
+    if diary is not None and len(diary) > 0:
+        title_col = _get_first_existing_col(diary, ["name", "title"])
+
+        if title_col:
+            watch_counts = diary[title_col].value_counts()
+
+            # Movies watched >= threshold times
+            comfort_df = watch_counts[watch_counts >= COMFORT_MOVIE_THRESHOLD]
+
+            comfort_movies["count"] = int(len(comfort_df))
+
+            for title, count in comfort_df.items():
+                comfort_movies["movies"].append({
+                    "title": title,
+                    "watches": int(count)
+                })
+
+    result["comfort_movies"] = comfort_movies
+
+
     return result
 
