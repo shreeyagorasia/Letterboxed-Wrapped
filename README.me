@@ -1,0 +1,28 @@
+# Letterboxd Wrapped 🎬
+
+A full-stack web app that generates personalised "Wrapped"-style insights
+from a user's Letterboxd export.
+
+## Features
+- Upload Letterboxd ZIP export
+- Rewatch & comfort movie stats
+- Busiest month analysis
+- Watchlist insights
+- (Coming soon) IMDb enrichment: genres, runtime, actors
+- (Coming soon) ML taste clustering & AI summaries
+
+## Tech Stack
+- Backend: FastAPI, Pandas
+- Frontend: React / Next.js (planned)
+- Data: Letterboxd export, IMDb datasets
+
+## Project Status
+🚧 In active development  
+Phase 1 (core stats engine) complete.
+
+## How to run (backend)
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r backend/requirements.txt
+python -m uvicorn backend.app.main:app --reload
