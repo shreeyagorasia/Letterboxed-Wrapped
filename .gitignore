@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+
+# Environment variables
+.env
+
+# OS files
+.DS_Store
+
+# Large datasets
+*.tsv
+*.parquet
+imdb_data/
+data/
+
+# User uploads
+*.zip

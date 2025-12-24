@@ -1,28 +1,76 @@
 # Letterboxd Wrapped 🎬
 
-A full-stack web app that generates personalised "Wrapped"-style insights
-from a user's Letterboxd export.
+A full-stack web application that generates personalised **“Wrapped”-style insights**
+from a user’s Letterboxd data export.
 
-## Features
+Inspired by Spotify Wrapped, this project turns raw viewing history into meaningful
+behavioural, temporal, and (eventually) taste-based insights.
+
+---
+
+## Features (Current)
+
 - Upload Letterboxd ZIP export
-- Rewatch & comfort movie stats
+- Total movies watched
+- Diary entry counts
+- Ratings and watchlist statistics
+- Rewatch detection
+- Comfort movies (frequently rewatched titles)
 - Busiest month analysis
-- Watchlist insights
-- (Coming soon) IMDb enrichment: genres, runtime, actors
-- (Coming soon) ML taste clustering & AI summaries
+
+---
+
+## Features (Planned / In Progress)
+
+- IMDb enrichment (runtime, genres, actors)
+- Total time spent watching films
+- Genre breakdowns and comfort genres
+- ML-based taste clustering
+- AI-generated “Wrapped” narrative summaries
+- Frontend “Wrapped card” visualisation
+
+---
 
 ## Tech Stack
-- Backend: FastAPI, Pandas
-- Frontend: React / Next.js (planned)
-- Data: Letterboxd export, IMDb datasets
+
+**Backend**
+- FastAPI
+- Pandas
+- Python (virtual environment)
+
+**Frontend**
+- React / Next.js (planned)
+
+**Data**
+- Letterboxd export (ZIP)
+- IMDb datasets (preprocessed locally)
+
+---
 
 ## Project Status
-🚧 In active development  
-Phase 1 (core stats engine) complete.
 
-## How to run (backend)
+🚧 **In active development**
+
+- Phase 1: Core backend and stats engine ✅
+- Phase 2: IMDb enrichment and extended analytics 🔄
+- Phase 3: Frontend and AI features ⏳
+
+---
+
+## How to Run (Backend)
+
+From the project root:
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -r backend/requirements.txt
 python -m uvicorn backend.app.main:app --reload
+Then open:
+http://127.0.0.1:8000
+http://127.0.0.1:8000/docs (API testing)
+
+Notes
+Letterboxd data is processed in memory and never stored
+IMDb data is preprocessed once into a compact format for fast lookup
+Generated data files can be safely deleted and rebuilt

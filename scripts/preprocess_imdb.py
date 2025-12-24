@@ -1,15 +1,23 @@
+print(">>> preprocess_imdb.py loaded", flush=True)
+
 import os
 from pathlib import Path
 import pandas as pd
 
 # -------- CONFIG --------
-IMDB_TSV_PATH = Path(os.environ.get("IMDB_TSV_PATH", ""))
+
+# TEMPORARY hard-coded path (we will fix later)
+IMDB_TSV_PATH = Path(
+    "/Users/shreeyagorasia/PycharmProjects/Personal_Fun/IMBD_required_datasets/title.basics.tsv")
 OUTPUT_PATH = Path("backend/app/data/imdb_movies.parquet")
 CHUNK_SIZE = 500_000
 # ------------------------
 
 
 def preprocess_imdb():
+    
+    print(">>> preprocess_imdb() started", flush=True)
+
     # ---- Guard: ensure IMDb path exists ----
     if not IMDB_TSV_PATH.exists():
         raise FileNotFoundError(
@@ -21,6 +29,9 @@ def preprocess_imdb():
         )
 
     print("Starting IMDb preprocessing...")
+    
+    print(">>> About to start reading TSV", flush=True)
+
     print(f"Reading from: {IMDB_TSV_PATH}")
 
     chunks = pd.read_csv(
@@ -75,4 +86,5 @@ def preprocess_imdb():
 
 
 if __name__ == "__main__":
+    
     preprocess_imdb()
