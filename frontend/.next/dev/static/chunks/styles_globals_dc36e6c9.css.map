@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///Users/shreeyagorasia/PycharmProjects/Personal_Fun/Letterboxed_Wrapped_Root/frontend/styles/globals.css"],"sourcesContent":["html, body {\n  margin: 0;\n  padding: 0;\n  background: #0b0b0b;\n  color: white;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;\n}\n\n* {\n  box-sizing: border-box;\n}\n"],"names":[],"mappings":"AAAA;;;;;;;;AAQA"}}]
+}

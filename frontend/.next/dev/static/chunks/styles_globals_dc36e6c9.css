@@ -1,0 +1,14 @@
+/* [project]/styles/globals.css [client] (css) */
+html, body {
+  color: #fff;
+  background: #0b0b0b;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/*# sourceMappingURL=styles_globals_dc36e6c9.css.map*/

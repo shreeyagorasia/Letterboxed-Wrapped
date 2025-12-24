@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/shreeyagorasia/PycharmProjects/Personal_Fun/Letterboxed_Wrapped_Root/frontend/pages/index.tsx"],"sourcesContent":["export default function Home() {\n  return (\n    <div>\n      <h1>Letterboxd Wrapped</h1>\n    </div>\n  );\n}"],"names":[],"mappings":";;;;;;AAAe,SAAS;IACtB,qBACE,qKAAC;kBACC,cAAA,qKAAC;sBAAG;;;;;;;;;;;AAGV"}}]
+}
