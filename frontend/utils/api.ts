@@ -1,23 +1,18 @@
-import { WrappedResponse, Stats } from "../types/wrapped";
-import { buildNarratives } from "./narrativeSelect";
+import { Stats } from "../types/wrapped";
 
-export async function uploadZip(file: File): Promise<WrappedResponse> {
-  const form = new FormData();
-  form.append("file", file);
+export async function uploadZip(file: File): Promise<Stats> {
+  const formData = new FormData();
+  formData.append("file", file);
 
   const res = await fetch("http://127.0.0.1:8000/upload", {
     method: "POST",
-    body: form,
+    body: formData,
   });
 
   if (!res.ok) {
     const detail = await res.text();
-    throw new Error(`Upload failed: ${detail || res.statusText}`);
+    throw new Error(detail || "Upload failed");
   }
 
-  const stats = (await res.json()) as Stats;
-  return {
-    stats,
-    narratives: buildNarratives(stats),
-  };
+  return res.json();
 }

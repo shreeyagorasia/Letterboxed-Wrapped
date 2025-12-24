@@ -11,4 +11,10 @@ async def upload_zip(file: UploadFile = File(...)):
     contents = await file.read()
     dfs = parse_letterboxd_zip(contents)
     stats = compute_basic_stats(dfs)
+
+    print("=== WRAPPED STATS ===")
+    for k, v in stats.items():
+        print(k, ":", v)
+    print("====================")
+
     return stats

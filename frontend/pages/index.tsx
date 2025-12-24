@@ -1,19 +1,35 @@
 import { useState } from "react";
 import Dropzone from "../components/upload/Dropzone";
-import WrappedPlayer from "../components/player/WrappedPlayer";
+import WrappedPlayer from "../components/wrapped/WrappedPlayer";
+import { uploadZip } from "../utils/api";
+import type { Stats } from "../types/wrapped";
 
 export default function HomePage() {
-  const [file, setFile] = useState<File | null>(null);
-  const [demo, setDemo] = useState(false);
+  const [stats, setStats] = useState<Stats | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-  if (file || demo) {
-    return <WrappedPlayer file={file} demo={demo} />;
+  const handleUpload = async (file: File) => {
+    try {
+      const stats = await uploadZip(file);
+      console.log("STATS FROM BACKEND:", stats);
+      setStats(stats);
+    } catch (err: any) {
+      setError(err.message || "Load failed");
+    }
+  };
+
+  if (stats) {
+    return <WrappedPlayer stats={stats} />;
   }
 
   return (
-    <Dropzone
-      onUpload={setFile}
-      onUseDemo={() => setDemo(true)}
-    />
+    <>
+      <Dropzone onUpload={handleUpload} />
+      {error && (
+        <p style={{ color: "hotpink", textAlign: "center" }}>
+          {error}
+        </p>
+      )}
+    </>
   );
 }

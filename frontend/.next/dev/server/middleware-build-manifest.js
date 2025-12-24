@@ -9,9 +9,9 @@ globalThis.__BUILD_MANIFEST = {
       "static/chunks/node_modules_framer-motion_dist_es_73607d22._.js",
       "static/chunks/node_modules_motion-dom_dist_es_2338bee4._.js",
       "static/chunks/node_modules_fad84438._.js",
-      "static/chunks/[root-of-the-server]__dbdc332f._.js",
+      "static/chunks/[root-of-the-server]__c778afcb._.js",
       "static/chunks/pages_index_2da965e7._.js",
-      "static/chunks/turbopack-pages_index_c4a5ecb6._.js"
+      "static/chunks/turbopack-pages_index_4ac24403._.js"
     ],
     "/_app": [
       "static/chunks/node_modules_next_dist_compiled_8ca6b690._.js",

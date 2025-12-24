@@ -1,10 +1,15 @@
 from fastapi import FastAPI
-from backend.app.routes.wrapped import router as wrapped_router
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-app.include_router(wrapped_router)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-@app.get("/")
-def root():
-    return {"message": "Backend is alive"}
+from backend.app.routes import wrapped
+app.include_router(wrapped.router)

@@ -1,9 +1,8 @@
 import { Narrative, Stats } from "../types/wrapped";
-
 export function buildNarratives(stats: Stats): Narrative[] {
   const narratives: Narrative[] = [];
-  const totalMovies = stats.counts?.diary_rows ?? 0;
 
+  const totalMovies = stats.counts?.diary_rows ?? 0;
   if (totalMovies > 0) {
     narratives.push({
       type: "opening",
@@ -11,58 +10,32 @@ export function buildNarratives(stats: Stats): Narrative[] {
     });
   }
 
-  const topGenre = stats.genre_identity?.top_genre;
-  const topGenrePct = stats.genre_identity?.top_genre_percentage;
-  if (topGenre) {
+  // Always add genre slide if genre_identity exists at all
+  if (stats.genre_identity) {
     narratives.push({
       type: "genre",
-      text: topGenrePct
-        ? `${topGenre} dominated your watchlist (${topGenrePct}%).`
-        : `${topGenre} was your go-to genre.`,
+      text: "What kind of movie person were you this year?",
     });
   }
 
-  const totalHours = stats.runtime?.total_hours;
-  if (totalHours) {
+  if (stats.runtime?.total_hours) {
     narratives.push({
       type: "time",
-      text: `You spent ${totalHours} hours watching movies.`,
+      text: `You spent ${stats.runtime.total_hours} hours watching movies.`,
     });
   }
 
-  const busiestMonth = stats.busiest_month?.busiest_month;
-  const busiestCount = stats.busiest_month?.movies_watched;
-  if (busiestMonth && busiestCount) {
-    narratives.push({
-      type: "month",
-      text: `${busiestMonth} was your busiest month with ${busiestCount} films.`,
-    });
-  }
-
-  const persona = stats.rating_personality?.persona;
-  if (persona) {
-    const avg = stats.rating_personality?.average_rating;
+  if (stats.rating_personality?.persona) {
     narratives.push({
       type: "ratings",
-      text: avg
-        ? `You were a ${persona.toLowerCase()} — average rating ${avg}⭐.`
-        : `You were a ${persona.toLowerCase()} this year.`,
+      text: "How tough were you on your ratings?",
     });
   }
 
-  const rewatches = stats.rewatches?.rewatch_count ?? 0;
-  if (rewatches > 0) {
+  if ((stats.rewatches?.rewatch_count ?? 0) > 0) {
     narratives.push({
       type: "rewatch",
-      text: `You rewatched ${rewatches} films — comfort viewing unlocked.`,
-    });
-  }
-
-  const watchlistCount = stats.watchlist?.items_in_watchlist ?? 0;
-  if (watchlistCount > 0) {
-    narratives.push({
-      type: "watchlist",
-      text: `You still have ${watchlistCount} films waiting on your watchlist.`,
+      text: "",
     });
   }
 

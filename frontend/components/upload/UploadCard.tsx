@@ -21,8 +21,18 @@ export default function UploadCard({ isDragging, error, onFileSelected, onUseDem
         borderColor: isDragging ? "rgba(0, 224, 255, 0.5)" : undefined,
       }}
     >
-      <div style={{ fontSize: "1rem", letterSpacing: "0.05em", opacity: 0.8 }}>
-        Drop your Letterboxd export (.zip) or choose a file
+      <div
+        style={{
+          fontSize: "1.75rem",
+          fontWeight: 500,
+          lineHeight: 1.35,
+          marginBottom: "0.5rem",
+          color: "rgba(255,255,255,0.95)",
+        }}
+      >
+        Drop your Letterboxd export (.zip)
+        <br />
+        or choose a file
       </div>
 
       <label

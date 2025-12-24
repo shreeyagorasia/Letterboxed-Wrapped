@@ -1,3 +1,7 @@
+// --------------------------------------------------
+// BASIC COUNTS
+// --------------------------------------------------
+
 export type Counts = {
   watched_rows: number;
   diary_rows: number;
@@ -5,96 +9,89 @@ export type Counts = {
   watchlist_rows: number;
 };
 
+// --------------------------------------------------
+// WATCHLIST
+// --------------------------------------------------
+
 export type WatchlistStats = {
   items_in_watchlist: number;
 };
 
-export type RewatchStats = {
-  rewatch_count: number;
-  most_rewatched_movie: string | null;
-  most_rewatched_count: number;
-};
-
-export type BusiestMonth = {
-  busiest_month: string | null;
-  movies_watched: number;
-};
-
-export type ConsistencyStats = {
-  active_months: number;
-};
-
-export type ComfortMovie = {
-  title: string;
-  watches: number;
-};
-
-export type ComfortMovies = {
-  threshold: number;
-  count: number;
-  movies: ComfortMovie[];
-  note: string;
-};
+// --------------------------------------------------
+// GENRE
+// --------------------------------------------------
 
 export type GenreIdentity = {
-  top_genre?: string;
-  top_genres?: Record<string, number>;
-  top_genre_percentage?: number;
+  top_genre: string;
+  top_genre_percentage: number;
+  genres: Record<string, number>;
 };
+
+// --------------------------------------------------
+// RUNTIME / TIME
+// --------------------------------------------------
 
 export type RuntimeStats = {
-  total_minutes?: number;
-  total_hours?: number;
-  average_runtime?: number;
+  total_minutes: number;
+  total_hours: number;
+  average_runtime: number;
 };
 
-export type ReleaseYearBias = {
-  median_year?: number;
-  modern_percentage?: number;
-};
+// --------------------------------------------------
+// RATINGS
+// --------------------------------------------------
 
 export type RatingPersonality = {
-  average_rating?: number | null;
-  high_rating_percentage?: number | null;
-  persona?: string | null;
+  average_rating: number | null;
+  high_rating_percentage: number | null;
+  persona: string | null;
   distribution: Record<string, number>;
 };
+
+// --------------------------------------------------
+// REWATCH SLIDE (already slide-shaped)
+// --------------------------------------------------
+
+export type RewatchFilm = {
+  title: string;
+  count: number;
+};
+
+export type RewatchStats = {
+  category: "comfort" | "explorer";
+  headline: string;
+  title: string;
+  subline: string;
+  films: RewatchFilm[];
+};
+
+// --------------------------------------------------
+// PEAK NIGHT (Best date)
+// --------------------------------------------------
+
+export type PeakNight = {
+  date: string;
+  count: number;
+};
+
+// --------------------------------------------------
+// ROOT STATS
+// --------------------------------------------------
 
 export type Stats = {
   counts: Counts;
   watchlist: WatchlistStats;
-  rewatches: RewatchStats;
-  busiest_month: BusiestMonth;
-  consistency: ConsistencyStats;
-  comfort_movies: ComfortMovies;
-  genre_identity: GenreIdentity;
-  runtime: RuntimeStats;
-  release_year_bias: ReleaseYearBias;
-  rating_personality: RatingPersonality;
+  genre_identity?: GenreIdentity;
+  runtime?: RuntimeStats;
+  rating_personality?: RatingPersonality;
+  rewatches?: RewatchStats;
+  peak_night?: PeakNight;
 };
 
-export type NarrativeType =
-  | "opening"
-  | "genre"
-  | "time"
-  | "ratings"
-  | "rewatch"
-  | "peak-night"
-  | "watchlist"
-  | "closing"
-  | "counts"
-  | "runtime"
-  | "month"
-  | "comfort"
-  | "habit"
-  | "taste";
-
-export type Narrative = {
-  type: NarrativeType;
-  text: string;
-};
+// --------------------------------------------------
+// API RESPONSE
+// --------------------------------------------------
 
 export type WrappedResponse = {
   stats: Stats;
-  narratives: Narrative[];
 };
