@@ -19,7 +19,7 @@ export default function RewatchSlide({ data }: { data: RewatchResult }) {
         {data.subline}
       </p>
 
-      {/* Accent divider (pop of colour) */}
+      {/* Accent divider */}
       <div
         style={{
           width: 300,
@@ -30,8 +30,12 @@ export default function RewatchSlide({ data }: { data: RewatchResult }) {
         }}
       />
 
-      {/* List */}
-      <RewatchList films={data.films} />
+      {/* List / contextual line */}
+      <RewatchList
+        films={data.films}
+        category={data.category}
+      />
     </div>
   );
 }
+

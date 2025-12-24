@@ -7,7 +7,9 @@ import RatingSlide from "../components/slides/RatingSlide";
 import RewatchSlide from "../components/slides/RewatchSlide";
 import WatchlistSlide from "../components/slides/WatchlistSlide";
 import ClosingSlide from "../components/slides/ClosingSlide";
-import PeakNightSlide from "../components/slides/PeakNightSlide";
+import BestMonthSlide from "../components/slides/BestMonthSlide";
+
+
 
 import type { Stats } from "../types/wrapped";
 
@@ -63,9 +65,9 @@ export function buildSlides(stats: Stats): Array<() => ReactElement> {
     // remove "as any" and it will type-check cleanly.
   }
 
-  // 5) Peak night (best date)
-  if (stats.peak_night) {
-    slides.push(() => <PeakNightSlide data={stats.peak_night} />);
+  // 5) Best month
+  if (stats.best_month) {
+    slides.push(() => <BestMonthSlide data={stats.best_month} />);
   }
 
 
@@ -75,7 +77,9 @@ export function buildSlides(stats: Stats): Array<() => ReactElement> {
   }
 
   // Closing (always)
-  slides.push(() => <ClosingSlide text="That’s a wrap." />);
+  slides.push(() => (
+  <ClosingSlide text={"What a great year for movies.\nWill next year be even better?"} />
+));
 
   return slides;
 }

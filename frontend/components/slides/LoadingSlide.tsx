@@ -18,7 +18,7 @@ export default function LoadingSlide() {
           animation: "spin 1s linear infinite",
         }}
       />
-      <div style={{ fontSize: "1.2rem", opacity: 0.8 }}>
+      <div style={{ fontSize: "1.5rem", opacity: 0.8 }}>
         Generating your Wrapped…
       </div>
       <style jsx>{`

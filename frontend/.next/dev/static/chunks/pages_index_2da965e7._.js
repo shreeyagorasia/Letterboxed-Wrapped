@@ -9,7 +9,7 @@
   "static/chunks/node_modules_framer-motion_dist_es_73607d22._.js",
   "static/chunks/node_modules_motion-dom_dist_es_2338bee4._.js",
   "static/chunks/node_modules_fad84438._.js",
-  "static/chunks/[root-of-the-server]__c778afcb._.js"
+  "static/chunks/[root-of-the-server]__44abadd8._.js"
 ],
     source: "entry"
 });

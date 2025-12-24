@@ -64,13 +64,12 @@ export type RewatchStats = {
   subline: string;
   films: RewatchFilm[];
 };
-
 // --------------------------------------------------
-// PEAK NIGHT (Best date)
+// Best Month
 // --------------------------------------------------
 
-export type PeakNight = {
-  date: string;
+export type BestMonth = {
+  month: string;
   count: number;
 };
 

@@ -3,6 +3,19 @@ type Film = {
   count: number;
 };
 
+type Category = "explorer" | "selective" | "comfort";
+
+type Props = {
+  films: Film[];
+  category: Category;
+};
+
+const CATEGORY_COPY: Record<Category, string> = {
+  explorer: "No rewinds. No comfort picks. Just curiosity.",
+  selective: "A few favourites earned a second look.",
+  comfort: "You know what you like — and you return to it.",
+};
+
 // Letterboxd-inspired accents
 const ROW_STYLES = [
   {
@@ -22,8 +35,8 @@ const ROW_STYLES = [
   },
 ];
 
-export default function RewatchList({ films }: { films: Film[] }) {
-  // Explorer case
+export default function RewatchList({ films, category }: Props) {
+  // Explorer / no-list case
   if (!films || films.length === 0) {
     return (
       <p
@@ -33,11 +46,12 @@ export default function RewatchList({ films }: { films: Film[] }) {
           opacity: 0.7,
         }}
       >
-        Every film was a first-time watch.
+        {CATEGORY_COPY[category]}
       </p>
     );
   }
 
+  // Rewatch list case
   return (
     <div style={{ marginTop: "1rem", width: "100%", maxWidth: 560 }}>
       {films.map((film, i) => {

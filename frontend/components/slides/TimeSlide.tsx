@@ -33,7 +33,7 @@ export default function TimeSlide({ stats }: { stats: RuntimeStats }) {
       </h1>
 
       {/* Conversion */}
-      <p style={{ fontSize: "1.4rem", opacity: 0.9 }}>
+      <p style={{ fontSize: "1.5 rem", opacity: 0.9 }}>
         That adds up to <strong>{totalHours} hours</strong> of movies.
       </p>
 
