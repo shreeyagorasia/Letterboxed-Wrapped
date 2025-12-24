@@ -79,6 +79,7 @@ export type NarrativeType =
   | "time"
   | "ratings"
   | "rewatch"
+  | "peak-night"
   | "watchlist"
   | "closing"
   | "counts"

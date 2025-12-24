@@ -8,14 +8,42 @@ import SlideNav from "./SlideNav";
 import OpeningSlide from "../slides/OpeningSlide";
 import GenreSlide from "../slides/GenreSlide";
 import TimeSlide from "../slides/TimeSlide";
+import RatingSlide from "../slides/RatingSlide";
+import RewatchSlide from "../slides/RewatchSlide";
+import PeakNightSlide from "../slides/PeakNightSlide";
 
+
+import type { RewatchResult } from "../../utils/rewatches";
 import type { Narrative } from "../../types/wrapped";
 
 export default function WrappedPlayer() {
+  // 🔹 Mock rewatch data (must be ABOVE slides)
+  const mockRewatchData: RewatchResult = {
+    category: "comfort",
+    headline: "Did you go back for seconds?",
+    title: "Comfort Watcher",
+    subline: "Some films felt like home.",
+    films: [
+      { title: "Before Sunrise", count: 3 },
+      { title: "Whiplash", count: 2 },
+      { title: "La La Land", count: 2 },
+    ],
+  };
+
+
+  const mockPeakNight = {
+  date: "Saturday, Nov 16",
+  count: 3,
+  };
+
+  // 🔹 Narrative order (story flow)
   const narratives: Narrative[] = [
     { type: "opening", text: "This was your year on Letterboxd." },
     { type: "genre", text: "What kind of movie person were you this year?" },
     { type: "time", text: "Time well spent" },
+    { type: "rewatch", text: "" },
+    { type: "ratings", text: "How tough were you on your ratings?" },
+    { type: "peak-night", text: "" },
     { type: "closing", text: "That’s a wrap." },
   ];
 
@@ -53,7 +81,31 @@ export default function WrappedPlayer() {
       );
     }
 
-    // fallback (closing slide for now)
+    if (n.type === "rewatch") {
+      return () => <RewatchSlide data={mockRewatchData} />;
+    }
+
+    if (n.type === "ratings") {
+      return () => (
+        <RatingSlide
+          buckets={{
+            high: 52,
+            mid: 33,
+            low: 15,
+          }}
+        />
+      );
+    }
+
+    if (n.type === "peak-night") {
+      return () =>
+        mockPeakNight ? (
+          <PeakNightSlide data={mockPeakNight} />
+        ) : null;
+    }
+
+
+    // Closing (fallback for now)
     return () => (
       <h1 style={{ fontSize: "3rem", textAlign: "center" }}>
         {n.text}

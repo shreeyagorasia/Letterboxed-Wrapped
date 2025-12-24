@@ -1,41 +1,147 @@
-[00:00:00.995] Server  LOG     ✓ Ready in 660ms
-[00:00:06.494] Browser ERROR   ./utils/slideFactory.ts:24:39
-Parsing ecmascript source code failed
-  22 |   narratives.forEach((n) => {
-  23 |     if (n.type === "opening") {
-> 24 |       slides.push(() => <OpeningSlide text={n.text} />);
-     |                                       ^^^^
-  25 |     } else if (n.type === "genre" && stats.genre_identity?.top_genre) {
-  26 |       const g = stats.genre_identity;
-  27 |       slides.push(() => (
+[00:00:00.766] Server  LOG     ✓ Ready in 514ms
+[00:02:29.345] Server  LOG     ✓ Compiled in 162ms
+[00:03:46.135] Server  LOG     ✓ Compiled in 112ms
+[00:03:58.676] Server  LOG     ✓ Compiled in 75ms
+[00:04:14.933] Server  LOG     ✓ Compiled in 19ms
+[00:04:36.755] Server  LOG     ✓ Compiled in 26ms
+[00:06:32.115] Server  LOG     ✓ Compiled in 107ms
+[00:12:21.097] Server  LOG     ✓ Compiled in 111ms
+[00:14:09.325] Server  LOG     ✓ Compiled in 780ms
+[00:15:32.899] Server  LOG     ✓ Compiled in 158ms
+[00:17:32.736] Server  LOG     ✓ Compiled in 95ms
+[00:17:43.351] Server  LOG     ✓ Compiled in 28ms
+[00:19:14.530] Server  LOG     ✓ Compiled in 94ms
+[00:19:29.148] Server  LOG     ✓ Compiled in 20ms
+[00:19:47.549] Server  LOG     ✓ Compiled in 16ms
+[00:34:49.435] Server  ERROR   ⨯ ./pages/index.tsx:3:1
+Module not found: Can't resolve '../components/player/WrappedPlayer'
+  1 | import { useState } from "react";
+  2 | import Dropzone from "../components/upload/Dropzone";
+> 3 | import WrappedPlayer from "../components/player/WrappedPlayer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export default function HomePage() {
+  6 |   const [file, setFile] = useState<File | null>(null);
 
-Expected '>', got 'text'
 
-Import traces:
-  Browser:
-    ./utils/slideFactory.ts
-    ./components/wrapped/WrappedPlayer.tsx
-    ./pages/index.tsx
 
-  SSR:
-    ./utils/slideFactory.ts
-    ./components/wrapped/WrappedPlayer.tsx
-    ./pages/index.tsx
-[00:11:54.741] Server  LOG     ✓ Compiled in 413ms
-[00:12:23.888] Server  LOG     ✓ Compiled in 151ms
-[00:17:33.471] Server  LOG     ✓ Compiled in 128ms
-[00:19:27.860] Server  LOG     ✓ Compiled in 162ms
-[00:19:28.578] Browser ERROR   %o
+https://nextjs.org/docs/messages/module-not-found
 
-%s
 
-%s
- {} The above error occurred in the <TimeSlide> component. React will try to recreate this component tree from scratch using the error boundary you provided, PagesDevOverlayErrorBoundary.
-[00:19:41.740] Browser ERROR   %o
+[00:34:49.439] Server  ERROR   ⨯ ./pages/index.tsx:3:1
+Module not found: Can't resolve '../components/player/WrappedPlayer'
+  1 | import { useState } from "react";
+  2 | import Dropzone from "../components/upload/Dropzone";
+> 3 | import WrappedPlayer from "../components/player/WrappedPlayer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export default function HomePage() {
+  6 |   const [file, setFile] = useState<File | null>(null);
 
-%s
 
-%s
- {} The above error occurred in the <TimeSlide> component. React will try to recreate this component tree from scratch using the error boundary you provided, PagesDevOverlayErrorBoundary.
-[00:20:36.571] Server  LOG     ✓ Compiled in 176ms
-[00:21:02.983] Server  LOG     ✓ Compiled in 26ms
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:34:49.444] Server  ERROR   ⨯ ./pages/index.tsx:3:1
+Module not found: Can't resolve '../components/player/WrappedPlayer'
+  1 | import { useState } from "react";
+  2 | import Dropzone from "../components/upload/Dropzone";
+> 3 | import WrappedPlayer from "../components/player/WrappedPlayer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export default function HomePage() {
+  6 |   const [file, setFile] = useState<File | null>(null);
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:34:49.448] Server  ERROR   ⨯ ./pages/index.tsx:3:1
+Module not found: Can't resolve '../components/player/WrappedPlayer'
+  1 | import { useState } from "react";
+  2 | import Dropzone from "../components/upload/Dropzone";
+> 3 | import WrappedPlayer from "../components/player/WrappedPlayer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export default function HomePage() {
+  6 |   const [file, setFile] = useState<File | null>(null);
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:34:49.455] Server  ERROR   ⨯ ./pages/index.tsx:3:1
+Module not found: Can't resolve '../components/player/WrappedPlayer'
+  1 | import { useState } from "react";
+  2 | import Dropzone from "../components/upload/Dropzone";
+> 3 | import WrappedPlayer from "../components/player/WrappedPlayer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export default function HomePage() {
+  6 |   const [file, setFile] = useState<File | null>(null);
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:34:49.459] Server  ERROR   ⨯ ./pages/index.tsx:3:1
+Module not found: Can't resolve '../components/player/WrappedPlayer'
+  1 | import { useState } from "react";
+  2 | import Dropzone from "../components/upload/Dropzone";
+> 3 | import WrappedPlayer from "../components/player/WrappedPlayer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export default function HomePage() {
+  6 |   const [file, setFile] = useState<File | null>(null);
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:34:49.461] Server  ERROR   ⨯ ./pages/index.tsx:3:1
+Module not found: Can't resolve '../components/player/WrappedPlayer'
+  1 | import { useState } from "react";
+  2 | import Dropzone from "../components/upload/Dropzone";
+> 3 | import WrappedPlayer from "../components/player/WrappedPlayer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export default function HomePage() {
+  6 |   const [file, setFile] = useState<File | null>(null);
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:34:49.461] Server  ERROR   ⨯ ./pages/index.tsx:3:1
+Module not found: Can't resolve '../components/player/WrappedPlayer'
+  1 | import { useState } from "react";
+  2 | import Dropzone from "../components/upload/Dropzone";
+> 3 | import WrappedPlayer from "../components/player/WrappedPlayer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export default function HomePage() {
+  6 |   const [file, setFile] = useState<File | null>(null);
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:34:49.463] Server  LOG     ✓ Compiled in 567ms
+[00:37:59.498] Browser ERROR   ./pages/index.tsx:3:1
+Module not found: Can't resolve '../components/player/WrappedPlayer'
+  1 | import { useState } from "react";
+  2 | import Dropzone from "../components/upload/Dropzone";
+> 3 | import WrappedPlayer from "../components/player/WrappedPlayer";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export default function HomePage() {
+  6 |   const [file, setFile] = useState<File | null>(null);
+
+https://nextjs.org/docs/messages/module-not-found
