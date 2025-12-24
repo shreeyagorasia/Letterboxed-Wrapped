@@ -1,1 +1,41 @@
-[00:00:00.785] Server  LOG     ✓ Ready in 532ms
+[00:00:00.995] Server  LOG     ✓ Ready in 660ms
+[00:00:06.494] Browser ERROR   ./utils/slideFactory.ts:24:39
+Parsing ecmascript source code failed
+  22 |   narratives.forEach((n) => {
+  23 |     if (n.type === "opening") {
+> 24 |       slides.push(() => <OpeningSlide text={n.text} />);
+     |                                       ^^^^
+  25 |     } else if (n.type === "genre" && stats.genre_identity?.top_genre) {
+  26 |       const g = stats.genre_identity;
+  27 |       slides.push(() => (
+
+Expected '>', got 'text'
+
+Import traces:
+  Browser:
+    ./utils/slideFactory.ts
+    ./components/wrapped/WrappedPlayer.tsx
+    ./pages/index.tsx
+
+  SSR:
+    ./utils/slideFactory.ts
+    ./components/wrapped/WrappedPlayer.tsx
+    ./pages/index.tsx
+[00:11:54.741] Server  LOG     ✓ Compiled in 413ms
+[00:12:23.888] Server  LOG     ✓ Compiled in 151ms
+[00:17:33.471] Server  LOG     ✓ Compiled in 128ms
+[00:19:27.860] Server  LOG     ✓ Compiled in 162ms
+[00:19:28.578] Browser ERROR   %o
+
+%s
+
+%s
+ {} The above error occurred in the <TimeSlide> component. React will try to recreate this component tree from scratch using the error boundary you provided, PagesDevOverlayErrorBoundary.
+[00:19:41.740] Browser ERROR   %o
+
+%s
+
+%s
+ {} The above error occurred in the <TimeSlide> component. React will try to recreate this component tree from scratch using the error boundary you provided, PagesDevOverlayErrorBoundary.
+[00:20:36.571] Server  LOG     ✓ Compiled in 176ms
+[00:21:02.983] Server  LOG     ✓ Compiled in 26ms

@@ -1,8 +1,12 @@
-export default function OpeningSlide() {
+export default function OpeningSlide({ text }: { text: string }) {
   return (
-    <div style={{ textAlign: "center" }}>
-      <h1 style={{ fontSize: "4rem" }}>Your Letterboxd Wrapped</h1>
-      <p>2025</p>
+    <div style={{ textAlign: "center", maxWidth: 800 }}>
+      <h1 style={{ fontSize: "4rem", marginBottom: "1rem" }}>
+        Your Letterboxed Wrapped
+      </h1>
+      <p style={{ fontSize: "1.5rem", opacity: 0.8 }}>
+        {text}
+      </p>
     </div>
   );
 }
