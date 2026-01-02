@@ -20,7 +20,7 @@ export default function RatingSlide({ buckets }: Props) {
         {verdict.title}
       </h1>
 
-      <p style={{ fontSize: "1.3rem", opacity: 0.85 }}>
+      <p style={{ fontSize: "1.5rem", opacity: 0.85 }}>
         {verdict.subline}
       </p>
 

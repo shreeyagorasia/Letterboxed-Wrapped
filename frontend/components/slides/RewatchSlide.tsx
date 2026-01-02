@@ -15,7 +15,7 @@ export default function RewatchSlide({ data }: { data: RewatchResult }) {
       </h1>
 
       {/* Subline */}
-      <p style={{ fontSize: "1.35rem", opacity: 0.85 }}>
+      <p style={{ fontSize: "1.5rem", opacity: 0.85 }}>
         {data.subline}
       </p>
 

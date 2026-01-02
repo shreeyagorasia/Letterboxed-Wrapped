@@ -1,3 +1,5 @@
+
+
 export default function OpeningSlide({ text }: { text: string }) {
   return (
     <div style={{ textAlign: "center", maxWidth: 800 }}>

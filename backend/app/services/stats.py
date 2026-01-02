@@ -114,29 +114,35 @@ def compute_basic_stats(dfs: dict) -> dict:
         }
 
     # --------------------------------------------------
-    # PEAK NIGHT (Best date)
+    # BEST MONTH (distinct films watched)
     # --------------------------------------------------
-    peak_night = {"date": None, "count": 0}
+    best_month = None
 
     if diary is not None and len(diary) > 0:
         date_col = _get_first_existing_col(diary, ["date", "watched_date"])
-        if date_col:
-            dates = diary[date_col].dropna().dt.date
-            date_counts = dates.value_counts()
+        title_col = _get_first_existing_col(diary, ["name", "title"])
 
-            if not date_counts.empty:
-                peak_night = {
-                    "date": date_counts.idxmax().strftime("%A, %b %d"),
-                    "count": int(date_counts.max()),
+        if date_col and title_col:
+            df = diary[[date_col, title_col]].dropna().copy()
+
+            df[date_col] = pd.to_datetime(df[date_col], errors="coerce")
+            df["month"] = df[date_col].dt.to_period("M")
+            df["title_norm"] = df[title_col].apply(normalise_title)
+
+            monthly_counts = (
+                df.drop_duplicates(["month", "title_norm"])
+                .groupby("month")
+                .size()
+            )
+
+            if not monthly_counts.empty:
+                best = monthly_counts.idxmax()
+                best_month = {
+                    "month": best.strftime("%B %Y"),
+                    "count": int(monthly_counts.max()),
                 }
 
-    print("DEBUG diary rows after year filter:", len(diary))
-    print("DEBUG diary unique (date, name) pairs:", diary.drop_duplicates(["date","name"]).shape[0])
-    print("DEBUG diary unique dates:", diary["date"].nunique())
-
-    result["peak_night"] = (
-    peak_night if peak_night["count"] > 1 else None)
-
+    result["best_month"] = best_month
 
     # --------------------------------------------------
     # IMDb ENRICHMENT (GENRE + RUNTIME)

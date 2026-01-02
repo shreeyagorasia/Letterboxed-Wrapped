@@ -84,7 +84,7 @@ export type Stats = {
   runtime?: RuntimeStats;
   rating_personality?: RatingPersonality;
   rewatches?: RewatchStats;
-  peak_night?: PeakNight;
+  best_month?: BestMonth;
 };
 
 // --------------------------------------------------
